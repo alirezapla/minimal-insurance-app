@@ -5,6 +5,7 @@ import com.example.insurance.common.exceptions.QuoteNotFoundException;
 import com.example.insurance.controller.utils.QuoteRequest;
 import com.example.insurance.model.Quote;
 import com.example.insurance.service.QuoteService;
+import com.example.insurance.service.abstraction.IQuoteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -18,9 +19,9 @@ import java.util.UUID;
 @RequestMapping("/quotes")
 public class QuoteController {
 
-    private final QuoteService quoteService;
+    private final IQuoteService quoteService;
 
-    public QuoteController(QuoteService quoteService) {
+    public QuoteController(IQuoteService quoteService) {
         this.quoteService = quoteService;
     }
 
