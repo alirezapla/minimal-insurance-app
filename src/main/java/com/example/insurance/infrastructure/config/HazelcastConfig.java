@@ -1,4 +1,4 @@
-package com.example.insurance.config;
+package com.example.insurance.infrastructure.config;
 
 import com.hazelcast.config.Config;
 import com.hazelcast.config.MapConfig;

@@ -1,4 +1,4 @@
-package com.example.insurance.config;
+package com.example.insurance.infrastructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
