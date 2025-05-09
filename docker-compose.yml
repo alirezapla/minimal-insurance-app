@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  app:
+    image: 'spring:latest'
+    build:
+      context: .
+    container_name: app
+    ports:
+      - "8877:8877"
