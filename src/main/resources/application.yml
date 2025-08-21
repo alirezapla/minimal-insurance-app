@@ -1,0 +1,43 @@
+spring:
+  banner:
+    location: banner.txt
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/insurance
+    username: root
+    password: 123QWE
+    driver-class-name: org.postgresql.Driver
+
+
+
+    jpa:
+      properties:
+        hibernate:
+          default_schema: insurance
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        ddl-auto: none  # Liquibase controls schema
+      show-sql: true
+      open-in-view: false
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml
+    default-schema: insurance
+
+server:
+  port: 7914
+  servlet:
+    context-path: /api/v1
+    session:
+      timeout: 30m
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
