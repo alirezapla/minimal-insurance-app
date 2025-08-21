@@ -1,9 +1,21 @@
 version: '3.8'
 services:
-  app:
-    image: 'spring:latest'
-    build:
-      context: .
-    container_name: app
+  postgres:
+    container_name: insuranceDb
+    image: postgres:14.0-alpine
+    restart: on-failure
     ports:
-      - "8877:8877"
+      - "5432:5432"
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+#  app:
+#    image: 'spring:latest'
+#    build:
+#      context: .
+#    container_name: app
+#    ports:
+#      - "8877:8877"
