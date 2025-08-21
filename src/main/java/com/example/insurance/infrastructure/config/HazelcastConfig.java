@@ -18,6 +18,11 @@ public class HazelcastConfig {
 
         MapConfig quotesMapConfig = new MapConfig();
         quotesMapConfig.setName("quotes")
+                .setTimeToLiveSeconds(180)
+                .setMaxIdleSeconds(180);
+
+        MapConfig quoteMapConfig = new MapConfig();
+        quotesMapConfig.setName("quote")
                 .setTimeToLiveSeconds(120)
                 .setMaxIdleSeconds(120);
 
