@@ -1,7 +1,6 @@
 package com.example.insurance.application.service;
 
-import com.example.insurance.InsuranceApplication;
-import com.example.insurance.application.service.abstraction.ProviderServiceUseCase;
+import com.example.insurance.application.port.abstraction.ProviderServiceUseCase;
 import com.example.insurance.domain.model.Provider;
 import com.example.insurance.domain.port.secondary.ProviderRepositoryPort;
 import org.slf4j.Logger;

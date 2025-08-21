@@ -1,6 +1,6 @@
 package com.example.insurance.domain.model;
 
-import com.example.insurance.application.service.abstraction.QuoteVisitor;
+import com.example.insurance.application.port.abstraction.QuoteVisitor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

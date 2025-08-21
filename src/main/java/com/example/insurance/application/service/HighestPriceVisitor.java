@@ -1,6 +1,6 @@
 package com.example.insurance.application.service;
 
-import com.example.insurance.application.service.abstraction.QuoteVisitor;
+import com.example.insurance.application.port.abstraction.QuoteVisitor;
 import com.example.insurance.domain.model.Quote;
 
 public class HighestPriceVisitor implements QuoteVisitor {

@@ -1,9 +1,8 @@
 package com.example.insurance.application.service;
 
-import com.example.insurance.application.service.abstraction.QuoteServiceUseCase;
+import com.example.insurance.application.port.abstraction.QuoteServiceUseCase;
 import com.example.insurance.domain.exceptions.QuoteNotFoundException;
 import com.example.insurance.domain.model.Quote;
-import com.example.insurance.domain.port.secondary.ProviderRepositoryPort;
 import com.example.insurance.domain.port.secondary.QuoteRepositoryPort;
 import com.example.insurance.infrastructure.adapter.web.dto.QuoteRequestDTO;
 import org.springframework.cache.annotation.CacheEvict;

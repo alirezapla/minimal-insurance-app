@@ -3,7 +3,7 @@ package com.example.insurance.infrastructure.adapter.web;
 
 import com.example.insurance.domain.exceptions.QuoteNotFoundException;
 import com.example.insurance.domain.model.Quote;
-import com.example.insurance.application.service.abstraction.QuoteServiceUseCase;
+import com.example.insurance.application.port.abstraction.QuoteServiceUseCase;
 import com.example.insurance.infrastructure.adapter.web.dto.QuoteRequestDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

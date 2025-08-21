@@ -1,6 +1,6 @@
 package com.example.insurance;
 
-import com.example.insurance.application.service.abstraction.ProviderServiceUseCase;
+import com.example.insurance.application.port.abstraction.ProviderServiceUseCase;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
