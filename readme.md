@@ -11,7 +11,6 @@ A minimal Spring Boot RESTful application to manage and aggregate insurance quot
 - Hazelcast caching with eviction strategies
 - AOP-based logging (controller & service layer)
 - Spring Security (secured API access)
-- Seeded H2 in-memory database
 - Postman collection
 - Unit tests
 - CI/CD with GitHub Actions
@@ -63,9 +62,7 @@ public class LowestPriceVisitor implements IQuoteVisitor {
 }
 ```
 
-### Sample Data (H2 DB)
 
-Providers are auto-seeded at startup via `CommandLineRunner`:
 
 
 ### Postman Collection
