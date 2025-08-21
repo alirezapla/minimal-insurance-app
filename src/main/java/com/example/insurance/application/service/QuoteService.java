@@ -1,7 +1,7 @@
 package com.example.insurance.application.service;
 
 import com.example.insurance.application.port.abstraction.QuoteServiceUseCase;
-import com.example.insurance.domain.exceptions.QuoteNotFoundException;
+import com.example.insurance.application.exceptions.QuoteNotFoundException;
 import com.example.insurance.domain.model.Quote;
 import com.example.insurance.domain.port.secondary.QuoteRepositoryPort;
 import com.example.insurance.infrastructure.adapter.web.dto.QuoteRequestDTO;

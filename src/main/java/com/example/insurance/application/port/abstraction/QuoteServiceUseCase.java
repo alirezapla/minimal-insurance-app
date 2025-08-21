@@ -1,6 +1,6 @@
 package com.example.insurance.application.port.abstraction;
 
-import com.example.insurance.domain.exceptions.QuoteNotFoundException;
+import com.example.insurance.application.exceptions.QuoteNotFoundException;
 import com.example.insurance.domain.model.Quote;
 import com.example.insurance.infrastructure.adapter.web.dto.QuoteRequestDTO;
 

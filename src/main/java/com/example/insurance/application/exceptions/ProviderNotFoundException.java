@@ -1,4 +1,4 @@
-package com.example.insurance.domain.exceptions;
+package com.example.insurance.application.exceptions;
 
 public class ProviderNotFoundException extends RuntimeException {
     public ProviderNotFoundException(String message) {

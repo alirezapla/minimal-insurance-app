@@ -1,7 +1,7 @@
 package com.example.insurance.infrastructure.adapter.persistent.adapter;
 
-import com.example.insurance.domain.exceptions.ProviderNotFoundException;
-import com.example.insurance.domain.exceptions.QuoteNotFoundException;
+import com.example.insurance.application.exceptions.ProviderNotFoundException;
+import com.example.insurance.application.exceptions.QuoteNotFoundException;
 import com.example.insurance.domain.port.secondary.QuoteRepositoryPort;
 import com.example.insurance.infrastructure.adapter.persistent.entity.ProviderEntity;
 import com.example.insurance.infrastructure.adapter.persistent.entity.QuoteEntity;

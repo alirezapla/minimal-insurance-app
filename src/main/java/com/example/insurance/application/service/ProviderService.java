@@ -21,19 +21,13 @@ public class ProviderService implements ProviderServiceUseCase {
 
     @Override
     public void createProviderIfNotExists(String providerName) {
-//        providerRepository.findByName(providerName)
-//                .orElseGet(() -> {
-//                    Provider provider = new Provider();
-//                    provider.setName(providerName);
-//                    return providerRepository.save(provider);
-//                });
         providerRepository.findByName(providerName).ifPresentOrElse(
                 p -> log.info("Provider '{}' already exists (id={})", providerName, p.getId()),
                 () -> {
                     Provider provider = new Provider();
                     provider.setName(providerName);
                     providerRepository.save(provider);
-                    log.info("Provider '{}' created ✅", providerName);
+                    log.info("Provider '{}' created", providerName);
                 }
         );
     }

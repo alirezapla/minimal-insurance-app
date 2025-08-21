@@ -1,4 +1,4 @@
-package com.example.insurance.domain.exceptions;
+package com.example.insurance.application.exceptions;
 
 public class QuoteNotFoundException extends RuntimeException {
     public QuoteNotFoundException(String message) {
