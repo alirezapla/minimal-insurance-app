@@ -2,6 +2,7 @@ package com.example.insurance.infrastructure.adapter.persistent.mapper;
 
 import com.example.insurance.domain.model.Quote;
 import com.example.insurance.infrastructure.adapter.persistent.entity.*;
+import com.example.insurance.infrastructure.adapter.persistent.repository.QuoteProjection;
 
 public class QuoteMapper {
 
@@ -12,6 +13,14 @@ public class QuoteMapper {
         quote.setCoverageType(entity.getCoverageType());
         quote.setPrice(entity.getPrice());
         quote.setProviderName(entity.getProvider().getName());
+        return quote;
+    }
+    public static Quote toDomain(QuoteProjection entity) {
+        if (entity == null) return null;
+        Quote quote = new Quote();
+        quote.setId(entity.getUuid());
+        quote.setPrice(entity.getPrice());
+        quote.setProviderName(entity.getProviderName());
         return quote;
     }
 

@@ -8,6 +8,9 @@ import com.example.insurance.infrastructure.adapter.persistent.entity.QuoteEntit
 import com.example.insurance.infrastructure.adapter.persistent.mapper.QuoteMapper;
 import com.example.insurance.infrastructure.adapter.persistent.repository.JpaProviderRepository;
 import com.example.insurance.infrastructure.adapter.persistent.repository.JpaQuoteRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import com.example.insurance.domain.model.Quote;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +34,29 @@ public class QuoteRepositoryAdapter implements QuoteRepositoryPort {
     @Override
     public Optional<Quote> findById(UUID id) {
         return jpaQuoteRepository.findByUuid(id).map(QuoteMapper::toDomain);
+    }
+
+    @Override
+    public Optional<Quote> findLowestPrice() {
+        return jpaQuoteRepository.findLowestPriceQuote(PageRequest.of(0, 1))
+                .stream()
+                .findFirst()
+                .map(QuoteMapper::toDomain);
+    }
+
+
+    @Override
+    public Optional<Quote> findHighestPrice() {
+        return jpaQuoteRepository.findHighestPriceQuote(PageRequest.of(0, 1))
+                .stream()
+                .findFirst()
+                .map(QuoteMapper::toDomain);
+    }
+
+    @Override
+    public Page<Quote> findAll(Pageable pageable) {
+        return jpaQuoteRepository.findAll(pageable)
+                .map(QuoteMapper::toDomain);
     }
 
     @Override

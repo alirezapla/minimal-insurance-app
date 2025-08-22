@@ -5,6 +5,10 @@ import com.example.insurance.application.exceptions.QuoteNotFoundException;
 import com.example.insurance.domain.model.Quote;
 import com.example.insurance.application.port.abstraction.QuoteServiceUseCase;
 import com.example.insurance.infrastructure.adapter.web.dto.QuoteRequestDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.SortDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -43,8 +47,8 @@ public class QuoteController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Quote>> all() {
-        return ResponseEntity.ok(quoteService.getAllQuotes());
+    public ResponseEntity<Page<Quote>> all(@SortDefault(sort = "price") @PageableDefault(size = 20) final Pageable pageable) {
+        return ResponseEntity.ok(quoteService.getAllQuotes(pageable));
     }
 
     @PutMapping("/{id}")

@@ -8,6 +8,8 @@ import com.example.insurance.infrastructure.adapter.web.dto.QuoteRequestDTO;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,8 +39,8 @@ public class QuoteService implements QuoteServiceUseCase {
     }
 
     @Cacheable(value = "quotes")
-    public List<Quote> getAllQuotes() {
-        return quoteRepository.findAll();
+    public Page<Quote> getAllQuotes(Pageable pageable) {
+        return quoteRepository.findAll(pageable);
     }
 
     @CachePut(value = "quote", key = "#id")
@@ -68,16 +70,14 @@ public class QuoteService implements QuoteServiceUseCase {
 
     @Cacheable("quotes")
     public Quote getLowestPriceQuote() {
-        LowestPriceVisitor visitor = new LowestPriceVisitor();
-        quoteRepository.findAll().forEach(q -> q.accept(visitor));
-        return visitor.getBestQuote();
+        return quoteRepository.findLowestPrice()
+                .orElseThrow(() -> new QuoteNotFoundException("No quotes available"));
     }
 
     @Cacheable("quotes")
     public Quote getHighestPriceQuote() {
-        HighestPriceVisitor visitor = new HighestPriceVisitor();
-        quoteRepository.findAll().forEach(q -> q.accept(visitor));
-        return visitor.getBestQuote();
+        return quoteRepository.findHighestPrice()
+                .orElseThrow(() -> new QuoteNotFoundException("No quotes available"));
     }
 
     @Cacheable("quotes")
